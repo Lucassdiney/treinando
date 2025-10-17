@@ -1,4 +1,4 @@
-/*Questão 01*/
+/*Questão 01
 class Carro{
     constructor(marca, modelo, ano){
         this.marca = marca;
@@ -19,7 +19,7 @@ console.log(carro1.descricao());
 console.log(carro2.descricao());
 console.log(carro3.descricao());
 
-/*Questão 02*/
+Questão 02
 
 class Conta{
     constructor(titular){
@@ -62,7 +62,7 @@ conta.verSaldo();
 conta.sacar(800);
 
 
-/*Questão 03*/
+Questão 03
 class Pessoa{
     constructor(Nome, Idade){
         this.Nome = Nome;
@@ -79,3 +79,156 @@ const pessoa2 = new Pessoa('Luana', 24);
 
 pessoa1.apresentar();
 pessoa2.apresentar();
+
+Questão 04
+
+class Pessoa{
+    constructor(name, age){
+        this.age = age;
+        this.name = name;
+    }
+
+    acao(){
+        console.log(`Meu nome é ${this.name} e tenho ${this.age} anos.`);
+    }
+}
+
+class Aluno extends Pessoa {
+    constructor(name, age, curso) {
+        super(name, age);
+        this.curso = curso;
+    }
+
+    estudos(){
+        console.log(`${this.name} está estudando ${this.curso}!`)
+    }
+}
+
+const aluno1 = new Aluno('Lucas', 26, 'Engenharia de software');
+aluno1.acao();
+aluno1.estudos();
+
+Questão 05
+
+class Produto{
+    constructor(nick, price, stock){
+        this.nick = nick;
+        this.price = price;
+        this.stock = stock;
+    }
+
+    vender(quantidade){
+        if( quantidade <= 0){
+            console.log('quantidade inválida para venda!');
+        } else if (quantidade > this.stock){
+            console.log(`Estoque insuficiente! Tempos apenas ${this.stock} unidades de ${this.nick}!`);
+        } else {
+            this.stock -= quantidade;
+            const total = this.price * quantidade;
+            console.log(`Venda de ${quantidade} ${this.nick} foi realizada! Total: R$${total} reais!`);
+        }
+    }
+
+    repor(){
+        if( quantidade > 0 ){
+            this.stock += quantidade;
+        }
+    }
+
+    mostrarEstoque(){
+        console.log(`Estoque atual de ${this.nick}: ${this.stock} unidades!`);
+    }
+}
+
+const produto1 = new Produto('camiseta', 50, 10);
+
+produto1.mostrarEstoque();
+produto1.vender(3);
+
+Questão 06
+
+class Retangulo{
+    constructor(largura, altura){
+        this.altura = altura;
+        this.largura = largura;
+    }
+
+    calcularArea(){
+        return this.largura * this.altura;
+    }
+
+    calcularPerimetro(){
+        return 2 * (this.altura + this.largura);
+    }
+}
+
+const retangulo1 = new Retangulo(3,7);
+
+console.log(`Largura: ${retangulo1.largura}`);
+console.log(`Altura: ${retangulo1.altura}`);
+console.log(`Área: ${retangulo1.calcularArea()}`);
+console.log(`Perimetro: ${retangulo1.calcularPerimetro()}`);
+
+Questão 07
+
+class Funcionario{
+    constructor(nome,cargo, salario){
+        this.nome = nome;
+        this.cargo = cargo;
+        this.salario = salario;
+    }
+
+    aumentarSalario(porcentagem){
+        if (porcentagem > 0){
+            const aumento = (this.salario * porcentagem) / 100;
+            this.salario += aumento;
+            console.log(`Salário aumentado em ${porcentagem}%. Seu novo salário é ${this.salario.toFixed(2)}!\n`)
+        }
+    }
+
+    mostrarDados(){
+        console.log(`Funcionário: ${this.nome}\n`);
+        console.log(`Cargo: ${this.cargo}\n`);
+        console.log(`Salário: R$${this.salario.toFixed(2)}\n`);
+    }
+}
+
+const funcao = new Funcionario('Lucas', 'Desenvolvedor', 5435);
+
+funcao.mostrarDados();
+funcao.aumentarSalario(10);
+funcao.mostrarDados();
+
+
+Questão 08
+
+class Livro{
+    constructor(titulo, autor, paginas, lido){
+        this.titulo = titulo;
+        this.autor = autor;
+        this.paginas = paginas;
+        this.lido = false;
+    }
+
+    ler(){
+        this.lido = true;
+        console.log(`Você terminou de ler "${this.titulo}".\n`);
+    }
+
+    mostrarStatus(){
+        if (this.lido) {
+            console.log(`O livro "${this.titulo}" já foi lido!\n`);
+        }   else {
+            console.log(`O livro "${this.titulo}" não foi lido!\n`);
+        }
+    }
+}
+
+const livro1 = new Livro('Clean code', 'Robert C. Martin', 464);
+
+livro1.mostrarStatus();
+
+livro1.ler();
+
+livro1.mostrarStatus();
+*/
