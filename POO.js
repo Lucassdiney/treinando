@@ -231,4 +231,49 @@ livro1.mostrarStatus();
 livro1.ler();
 
 livro1.mostrarStatus();
+
+Questão 09
+
+class Calculadora{
+        somar(a,b){
+            return a + b;
+        }
+}
+
+const calculo = new Calculadora();
+
+console.log('Soma:', calculo.somar(11,4));
+
+Questão 10
+
+class Filme{
+    constructor(titulo, diretor, ano, avaliacao){
+        this.titulo = titulo;
+        this.diretor = diretor;
+        this.ano = ano;
+        this.avaliacao = avaliacao;
+    }
+
+    avaliarNota(nota){
+        if(nota <= 5 ){
+            this.avaliacao = nota;
+            console.log('O filme é ruim');
+        } else if (nota > 7){
+            console.log('O filme é excelente!\n')
+        } else {
+            console.log('O filme é mediano!')
+        }
+    }
+
+    mostrarInfo(){
+        console.log(`titulo: ${this.titulo}\n`);
+        console.log(`diretor: ${this.diretor}\n`);
+        console.log(`ano: ${this.ano}\n`);
+    }
+}
+
+const filme = new Filme('interestelar', 'christopher nolan', 2014);
+
+filme.mostrarInfo();
+filme.avaliarNota(5);
 */
